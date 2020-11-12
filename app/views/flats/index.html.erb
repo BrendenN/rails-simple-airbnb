@@ -1,0 +1,45 @@
+<h1 class="m-5" >Available Flats (<%=@flats.count %>)</h1>
+<div class="container">
+
+<div class="row h-50">
+ <% @flats.each do |flat| %>
+   <div class="col-4">
+      <div class="card ml-2 mb-5 shadow">
+      <img src="https://source.unsplash.com/random" class="card-img-top h-50" alt="no image">
+          <div class="card-body">
+            <h5 class="card-title"><%= flat.name %></h5>
+            <small class="card-text"><%= flat.description %></small>
+            <br>
+            <small class= "card-link" ><i class="fas fa-user-friends"></i> <%= flat.number_of_guests %></small>
+            <small class= "card-link"><i class="fas fa-dollar-sign"></i> <%= flat.price_per_night %></small>
+  <!--          <a href="#" class="btn btn-primary">Go somewhere</a>
+   -->     </div>
+      <%= link_to "More info", flat %>
+      <%= link_to "edit", flat%>
+      <%= link_to "Remove",
+                  flat_path(flat),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+        </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<!--   <ul>
+    <% @flats.each do |flat| %>
+      <div class="card"></div>
+
+      <%= flat.name %>
+
+      <%= flat.description %>
+
+      <%= flat.address %>
+
+      <%= flat.number_of_guests %>
+
+      <%= flat.price_per_night %>
+    <% end %>
+  </ul>
+
+ -->
